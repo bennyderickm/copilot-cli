@@ -116,3 +116,8 @@ Resources:
       ServiceRegistries: !If [ExposePort, [{RegistryArn: !GetAtt DiscoveryService.Arn, Port: !Ref ContainerPort}], !Ref "AWS::NoValue"]
 
 {{include "addons" . | indent 2}}
+
+Outputs:
+  DiscoveryServiceArn:
+    Description: ARN of the Discovery Service.
+    Value: !GetAtt DiscoveryService.Arn
